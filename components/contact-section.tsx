@@ -31,11 +31,10 @@ export default function ContactSection() {
   const form = useForm<InsertContact>({
     resolver: zodResolver(insertContactSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      name: "",
       email: "",
       company: "",
-      budgetRange: "",
+      phone: "",
       message: "",
     },
   });
@@ -131,12 +130,12 @@ export default function ContactSection() {
                 <div className="grid grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
-                    name="firstName"
+                    name="name"
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
                           <Input
-                            placeholder="First Name"
+                            placeholder="Full Name"
                             {...field}
                             className="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:border-vibrant-orange"
                           />
@@ -147,12 +146,12 @@ export default function ContactSection() {
                   />
                   <FormField
                     control={form.control}
-                    name="lastName"
+                    name="phone"
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
                           <Input
-                            placeholder="Last Name"
+                            placeholder="Phone Number"
                             {...field}
                             className="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-xl px-6 py-4 text-white placeholder-gray-400 focus:border-vibrant-orange"
                           />
@@ -198,28 +197,7 @@ export default function ContactSection() {
                   )}
                 />
                 
-                <FormField
-                  control={form.control}
-                  name="budgetRange"
-                  render={({ field }) => (
-                    <FormItem>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger className="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-xl px-6 py-4 text-white focus:border-vibrant-orange">
-                            <SelectValue placeholder="Select Budget Range" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="10k-25k">$10K - $25K</SelectItem>
-                          <SelectItem value="25k-50k">$25K - $50K</SelectItem>
-                          <SelectItem value="50k-100k">$50K - $100K</SelectItem>
-                          <SelectItem value="100k+">$100K+</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage className="text-red-400" />
-                    </FormItem>
-                  )}
-                />
+
                 
                 <FormField
                   control={form.control}
