@@ -7,9 +7,9 @@ This is a modern, responsive digital marketing agency website built with React, 
 ## System Architecture
 
 ### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite for fast development and optimized builds
-- **Routing**: Wouter for lightweight client-side routing
+- **Framework**: Next.js 15 with React 18 and TypeScript
+- **Build Tool**: Next.js built-in bundler with optimized builds
+- **Routing**: Next.js App Router with file-based routing
 - **UI Framework**: shadcn/ui components built on Radix UI primitives
 - **Styling**: Tailwind CSS with custom design tokens
 - **Animations**: Framer Motion for smooth page transitions and interactions
@@ -17,11 +17,11 @@ This is a modern, responsive digital marketing agency website built with React, 
 - **Form Handling**: React Hook Form with Zod validation
 
 ### Backend Architecture
-- **Runtime**: Node.js with Express.js framework
+- **Runtime**: Next.js API Routes with TypeScript
 - **Language**: TypeScript with ES modules
 - **API Design**: RESTful endpoints with structured error handling
-- **Request Processing**: Express middleware for JSON parsing and logging
-- **Development**: Hot reload with tsx and Vite integration
+- **Request Processing**: Next.js middleware for JSON parsing and logging
+- **Development**: Hot reload with Next.js dev server
 
 ### Database Architecture
 - **Database**: PostgreSQL with Drizzle ORM
@@ -76,21 +76,21 @@ This is a modern, responsive digital marketing agency website built with React, 
 
 ### Development Tools
 - **TypeScript**: Static type checking
-- **Vite**: Fast build tool and dev server
-- **ESBuild**: JavaScript bundler for production
+- **Next.js**: Full-stack React framework
 - **PostCSS**: CSS processing
+- **Drizzle ORM**: Type-safe database operations
 
 ## Deployment Strategy
 
 ### Development Environment
 - **Platform**: Replit with Node.js 20 runtime
 - **Database**: PostgreSQL 16 module
-- **Hot Reload**: Vite dev server with Express integration
-- **Port Configuration**: Client on 5000, mapped to external port 80
+- **Hot Reload**: Next.js dev server with fast refresh
+- **Port Configuration**: Next.js on 3000, mapped to external port 80
 
 ### Production Build
-- **Build Process**: Vite builds client, ESBuild bundles server
-- **Output**: Static files in `dist/public`, server bundle in `dist/`
+- **Build Process**: Next.js build with optimized output
+- **Output**: Static files in `.next/static/`, server bundle in `.next/`
 - **Deployment**: Autoscale deployment target on Replit
 - **Environment**: Production mode with optimized builds
 
@@ -103,7 +103,8 @@ This is a modern, responsive digital marketing agency website built with React, 
 
 ```
 Changelog:
-- June 18, 2025. Initial setup
+- June 18, 2025. Initial setup with Vite and Express
+- June 18, 2025. Converted to Next.js 15 with App Router
 ```
 
 ## User Preferences
