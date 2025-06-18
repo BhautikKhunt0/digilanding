@@ -1,6 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { storage } from '@/lib/storage'
-import { insertContactSchema } from '@/shared/schema'
+import { z } from 'zod'
+
+const insertContactSchema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  email: z.string().email('Invalid email address'),
+  company: z.string().optional(),
+  phone: z.string().optional(),
+  message: z.string().min(1, 'Message is required'),
+})
+
+// In-memory storage for demo purposes
+const contacts: Array<{
+  id: number;
+  name: string;
+  email: string;
+  company?: string;
+  phone?: string;
+  message: string;
+  createdAt: Date;
+}> = []
+
+let nextId = 1
 import { z } from 'zod'
 
 export async function POST(request: NextRequest) {
