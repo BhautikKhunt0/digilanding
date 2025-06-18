@@ -21,7 +21,6 @@ const contacts: Array<{
 }> = []
 
 let nextId = 1
-import { z } from 'zod'
 
 export async function POST(request: NextRequest) {
   try {

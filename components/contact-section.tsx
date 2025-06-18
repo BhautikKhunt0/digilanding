@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,17 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { insertContactSchema, type InsertContact } from "@/shared/schema";
+import { z } from 'zod';
+
+const insertContactSchema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  email: z.string().email('Invalid email address'),
+  company: z.string().optional(),
+  phone: z.string().optional(),
+  message: z.string().min(1, 'Message is required'),
+})
+
+type InsertContact = z.infer<typeof insertContactSchema>
 
 export default function ContactSection() {
   const { toast } = useToast();
